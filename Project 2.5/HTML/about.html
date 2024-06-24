@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar .animation {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: calc(100% / 4);
+      /* Start at "About" */
+      z-index: 0;
+      transition: 0.5s ease;
+      /* Smooth transition for moving background */
+      border-radius: 8px;
+      background-color: #0099ff;
+      width: calc(100% / 4);
+      /* Adjust width to match each navbar item */
+    }
+
+    /* Additional adjustments */
+    .navbar ul {
+      position: relative;
+      list-style: none;
+      display: flex;
+      justify-content: end;
+    }
+
+    .navbar li {
+      position: relative;
+      width: 100px;
+      /* Width adjusted for better centering */
+      text-align: center;
+      border-radius: 8px;
+      padding: 0px 10px;
+    }
+
+    .navbar li a {
+      display: block;
+      padding: 15px;
+      color: #000;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar li:hover a {
+      color: #000;
+      /* Text color on hover */
+    }
+
+    /* Hover effect with background transition */
+    .navbar li:hover~.animation {
+      left: calc(100px * var(--i));
+      background-color: #0099ff;
+    }
+
+    /* Positions for each navbar item */
+    .navbar-nav .nav-item:nth-child(1):hover~.animation {
+      left: 0;
+      /* Move background to the first item */
+    }
+
+    .navbar-nav .nav-item:nth-child(2):hover~.animation {
+      left: calc(100% / 4);
+      /* Move background to the second item */
+    }
+
+    .navbar-nav .nav-item:nth-child(3):hover~.animation {
+      left: calc(100% / 4 * 2);
+      /* Move background to the third item */
+    }
+
+    .navbar-nav .nav-item:nth-child(4):hover~.animation {
+      left: calc(100% / 4 * 3);
+      /* Move background to the fourth item */
+    }
+
+    /* Return to "Home" position when not hovering any item */
+    .navbar:hover .animation {
+      left: calc(100%/4);
+      background-color: #0099ff;
+    }
+
+    /* Base styles for nav items */
+    .navbar-nav .nav-item {
+      position: relative;
+      flex: 1;
+      /* Distribute space evenly among navbar items */
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: #000;
+      /* White color for text */
+      text-decoration: none;
+      /* Remove underline from links */
+      padding: 0.5rem 1rem;
+      /* Add padding around navbar items */
+      position: relative;
+      z-index: 1;
+      /* Ensure text is above background animation */
+    }
+
+    /* Ensure animation returns to "Home" when not hovering over any nav items */
+    .navbar-nav:hover .animation {
+      left: calc(100% / 4);
+      /* Reset background to "About" when no hover */
+    }
+
+    .navbar {
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      background-color: transparent;
+      transition: background-color 0.3s ease, border-bottom 0.3s ease;
+      z-index: 3;
+    }
+
+    .navbar-nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-nav a {
+      color: #000;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+    }
+
+    .navbar-nav a:hover {
+      color: #000;
+    }
+
+    .scroll-navbar {
+      background-color: #333;
+      border-bottom: 2px solid #0056b3;
+    }
+
+    .scroll-navbar a {
+      color: #fff;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      opacity: 1;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      color: #000;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+    }
+
+    .navbar-nav .nav-item:nth-child(2) .nav-link {
+      opacity: 1;
+    }
+
+    .navbar-nav .nav-item:nth-child(2) .nav-link:hover {
+      color: #000;
+    }
+
+    .navbar-brand img {
+      align-items: center;
+    }
+
+    .navbar-brand {
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .pawal {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .navbar h3 {
+      margin-top: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .text-white {
+      color: #fff !important;
+    }
+
+    .stroked-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 100px;
+      color: white;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      -webkit-text-stroke: 2px black;
+    }
+
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      margin: 50px 0;
+      padding: 20px 0;
+      background-color: #fff;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #ccc;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item .timeline-content {
+      padding: 10px 20px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 2px 3px 4px 2px;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      flex: 1;
+    }
+
+    .timeline-item.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-item.out-view-left {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    .timeline-item.out-view-right {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      transform: translateX(100px);
+      /* Awal dari kanan */
+    }
+
+    .timeline-item:nth-child(even).out-view-right .timeline-content {
+      opacity: 0;
+      transform: translateX(100px);
+      /* Keluar ke kanan */
+    }
+
+    .timeline-item:nth-child(even) .timeline-content.in-view {
+      opacity: 1;
+      transform: translateX(0);
+      /* Muncul ke tempatnya */
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      transform: translateX(-100px);
+      /* Awal dari kanan */
+    }
+
+    .timeline-item:nth-child(odd).out-view-left .timeline-content {
+      opacity: 0;
+      transform: translateX(-100px);
+      /* Keluar ke kanan */
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content.in-view {
+      opacity: 1;
+      transform: translateX(0);
+      /* Muncul ke tempatnya */
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -12px;
+      /* Atur jarak dari garis timeline */
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background: #0056b3;
+      border: 3px solid #ccc;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-item.right::after {
+      left: -8px;
+      /* Sesuaikan dengan jarak yang sama */
+      right: auto;
+      /* Hapus properti right */
+    }
+
+    .timeline-item .timeline-content h4 {
+      margin-top: 0;
+      color: #0056b3;
+    }
+
+    .timeline-content {
+      text-align: center;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0px 0px 6px 0px;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      margin-bottom: 30px;
+    }
+
+    .card .card-img-top {
+      transition: transform 0.5s ease;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.3s ease;
+    }
+
+    .card:hover .card-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .card-body {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      z-index: 2;
+    }
+
+    .card-body h3.card-text {
+      margin-top: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-body h3.card-text {
+      transform: translateY(-400%);
+    }
+
+    .card-body h3 {
+      margin: 0;
+      text-shadow:
+        0.6px 0.6px 0 black,
+        -0.6px -0.6px 0 black,
+        0.6px -0.6px 0 black,
+        -0.6px 0.6px 0 black;
+    }
+
+    .card-body h5.card-text {
+      margin-top: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-body h5.card-text {
+      transform: translateY(-570%);
+    }
+
+    .card-body h5 {
+      margin: 0;
+      text-shadow:
+        0.6px 0.6px 0 black,
+        -0.6px -0.6px 0 black,
+        0.6px -0.6px 0 black,
+        -0.6px 0.6px 0 black;
+    }
+
+    .hover-text {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      transition: bottom 0.3s;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    .card:hover .hover-text {
+      opacity: 1;
+      bottom: 0;
+      transform: translateY(0);
+    }
+
+    .navba li {
+      list-style-type: none;
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .navba li i {
+      font-size: 14px;
+      padding-right: 8px;
+      color: #fff;
+      transition: all 0.5s;
+    }
+
+    .navba li:hover {
+      color: #0099ff;
+    }
+
+    .navba li:hover i {
+      transform: scale(0.9);
+      color: #0099ff;
+    }
+
+    .navba li:hover {
+      transform: scale(1.1);
+    }
+
+    .navba li a {
+      display: block;
+      transition: all 0.5s;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navba li.hover a {
+      padding-left: 20px;
+      text-indent: 0;
+      letter-spacing: 2px;
+      /* Sesuaikan nilai ini sesuai keinginan Anda */
+      color: #0099ff;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="logop.png" alt="logop" height="70" class="d-inline-block align-text-top">
+        </a>
+        <h3 class="text-black" id="navbar-title">WareXpress</h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <div class="animation"></div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div>
+    <img src="overlay.png.jpg" alt="overlay" class="pawal">
+    <h1 class="stroked-text">About us</h1>
+  </div>
+  <section id="rekan">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col pt-5 pb-5">
+          <h1>Rekan kami</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex justify-content-evenly" style="padding: 0 50px;">
+          <div class="col-4">
+            <div class="card">
+              <img src="orang1.jpg" class="img card-img-top" alt="orang1">
+              <div class="card-overlay"></div>
+              <div class="card-body">
+                <h3 class="card-text">Pieter John</h3>
+                <h5 class="card-text">CEO</h5>
+                <div class="hover-text">Pieter John adalah CEO berpengalaman dengan lebih dari 20 tahun di industri
+                  manajemen gudang dan logistik. Di bawah kepemimpinannya, WareXpress telah mencapai pertumbuhan
+                  signifikan melalui inovasi dan efisiensi operasional</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="orang2.jpg" class="img card-img-top" alt="orang2">
+              <div class="card-overlay"></div>
+              <div class="card-body">
+                <h3 class="card-text">Steven Christopher</h3>
+                <h5 class="card-text">COO</h5>
+                <div class="hover-text">Steven Christopher adalah COO berpengalaman dengan 15 tahun di industri
+                  manajemen gudang dan logistik, bertanggung jawab atas operasi harian di WareXpress, dia dikenal karena
+                  kedisiplinan dan komitmennya terhadap efisiensi dan produktivitas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-5 justify-content-center" style="padding: 0 50px;">
+          <div class="col-4" style="margin-right: 50px;">
+            <div class="card">
+              <img src="orang3.jpg" class="img card-img-top" alt="orang3">
+              <div class="card-overlay"></div>
+              <div class="card-body">
+                <h3 class="card-text">Michael Leon</h3>
+                <h5 class="card-text">Inventory Control Specialist</h5>
+                <div class="hover-text">Sebagai spesialis pengendalian inventaris, Michael Leon dikenal dengan
+                  kemampuannya dalam mengoptimalkan siklus hidup produk dan mengurangi biaya persediaan. Kontribusinya
+                  membantu WareXpress mencapai tingkat efisiensi operasional yang lebih cepat</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="margin-right: 50px;">
+            <div class="card">
+              <img src="orang4.jpg" class="img card-img-top" alt="orang3">
+              <div class="card-overlay"></div>
+              <div class="card-body">
+                <h3 class="card-text">James Robert</h3>
+                <h5 class="card-text">Logistics Coordinator</h5>
+                <div class="hover-text">Koordinator Logistik ini dikenal karena kemampuannya dalam merancang strategi
+                  pengiriman efektif dan menangani distribusi produk dengan tepat waktu, memperkuat reputasi WareXpress
+                  sebagai pemimpin dalam industri logistik</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="orang5.jpg" class="img card-img-top" alt="orang3">
+              <div class="card-overlay"></div>
+              <div class="card-body">
+                <h3 class="card-text">Lucas Alexander</h3>
+                <h5 class="card-text">Quality Control Inspector</h5>
+                <div class="hover-text">Dengan pengalaman luas sebagai Inspektur Pengendalian Kualitas, Lucas Alexander
+                  menjamin standar kualitas tinggi untuk setiap produk yang keluar dari WareXpress, mengurangi tingkat
+                  cacat, dan meningkatkan kepuasan pelanggan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+  </section>
+  <div class="d-flex text-center justify-content-center pt-5">
+    <h1 class="text-center">Timeline</h1>
+  </div>
+  <section class="timeline">
+    <div class="container">
+      <div class="timeline-item left" id="timeline-item-1">
+        <div class="timeline-content">
+          <h4>2017</h4>
+          <p>WareXpress didirikan dan mulai beroperasi sebagai penyedia jasa pergudangan dengan fokus pada pelayanan
+            pelanggan yang prima.</p>
+        </div>
+      </div>
+      <div class="timeline-item right" id="timeline-item-2">
+        <div class="timeline-content">
+          <h4>2018</h4>
+          <p>Kami memperkenalkan sistem manajemen gudang yang canggih, membuka beberapa lokasi baru, dan mengadopsi
+            praktik ramah lingkungan.</p>
+        </div>
+      </div>
+      <div class="timeline-item left" id="timeline-item-3">
+        <div class="timeline-content">
+          <h4>2019</h4>
+          <p>Kami memperluas layanan ke berbagai daerah, menambah layanan distribusi, dan memulai program loyalitas
+            pelanggan.</p>
+        </div>
+      </div>
+      <div class="timeline-item right" id="timeline-item-4">
+        <div class="timeline-content">
+          <h4>2020</h4>
+          <p>WareXpress menerima penghargaan sebagai perusahaan terbaik di bidang pergudangan. Kami juga menghadapi
+            pandemi global dengan layanan khusus untuk e-commerce.</p>
+        </div>
+      </div>
+      <div class="timeline-item left" id="timeline-item-5">
+        <div class="timeline-content">
+          <h4>2021</h4>
+          <p>Kami meluncurkan layanan manajemen inventaris berbasis AI, memperluas kehadiran internasional, dan
+            berkomitmen pada praktik berkelanjutan dan inovasi teknologi.</p>
+        </div>
+      </div>
+      <div class="timeline-item right" id="timeline-item-6">
+        <div class="timeline-content">
+          <h4>2022</h4>
+          <p>Kami terus memperluas jaringan global kami, fokus pada pengembangan teknologi terbaru dalam logistik, dan
+            mengoptimalkan operasional untuk memenuhi permintaan pelanggan yang semakin meningkat.</p>
+        </div>
+      </div>
+      <div class="timeline-item left" id="timeline-item-7">
+        <div class="timeline-content">
+          <h4>2023</h4>
+          <p>Kami meraih posisi terdepan dalam industri pergudangan dengan inovasi terbaru dalam manajemen rantai
+            pasokan dan layanan pelanggan yang superior.</p>
+        </div>
+      </div>
+      <div class="timeline-item right" id="timeline-item-8">
+        <div class="timeline-content">
+          <h4>2024</h4>
+          <p>WareXpress menetapkan standar baru dalam layanan pergudangan global dengan ekspansi ke pasar baru,
+            integrasi teknologi AI di seluruh operasi, dan komitmen yang diperkuat pada keberlanjutan dan responsivitas
+            pelanggan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="visimisi">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8" style="padding-top: 81px;">
+          <h1 class="text-center">Visi Kami</h1>
+          <h4>"Menjadi solusi utama dalam manajemen gudang yang inovatif, efisien, dan terpercaya di seluruh Indonesia,
+            membantu bisnis dari berbagai skala untuk mencapai keunggulan operasional melalui teknologi dan layanan
+            unggulan"</h4>
+        </div>
+        <div class="col-lg-4">
+          <img src="vission.jpg" alt="vission">
+        </div>
+        <div class="col-lg-4">
+          <img src="mission.jpg" alt="mission">
+        </div>
+        <div class="col-lg-8" style="padding-top: 8px;">
+          <h1 class="text-center">Misi Kami</h1>
+          <h4>- Menyediakan solusi manajemen gudang canggih untuk efisiensi maksimal, biaya rendah, dan produktivitas tinggi</h4>
+          <h4>- Membangun hubungan jangka panjang dengan pelanggan dan mitra untuk nilai tambah dalam rantai pasokan</h4>
+          <h4>- Mengembangkan tim profesional yang kompeten dan berkomitmen untuk layanan terbaik</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="bg-black p-0 pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-3 d-flex align-items-center">
+            <img src="logop.png" alt class="img-fluid" style="height: 50px;">
+            <h6 class="fw-bold text-uppercase text-white mt-3">WareXpress</h6>
+          </div>
+          <p class="text-white mt-2">
+            "WareXpress adalah sebuah perusahaan berkualitas yang menyediakan solusi berupa layanan pergudangan dengan
+            sistem yang dapat diandalkan untuk kembangkan bisnis Anda"
+          </p>
+          <div class="col-12 col-lg-4 mb-2">
+            <h5 class="text-white m-3 fw-bold text-lg-start">Contact</h5>
+            <div class="menu menu-2">
+              <ul class="navba nav flex-column">
+                <li class="nav-item p-0 mb-2">
+                  <a href=""><i class="bi bi-geo-alt-fill mx-2"></i>1234 Street Name, City, Country</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href=""><i class="bi bi-telephone-fill mx-2"></i>+62 821 332 99</a>
+                </li>
+                <li class="nav-item p-0">
+                  <a href><i class="bi bi-envelope-fill mx-2"></i>example@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 mb-2">
+            <h5 class="text-white m-3 fw-bold text-lg-start">Navigation</h5>
+            <div class="menu menu-2">
+              <ul class="navba nav flex-column">
+                <li class="nav-item p-0 mb-2">
+                  <a href="index.html"><i class="fa-solid fa-angles-right"></i>Home</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href="#"><i class="fa-solid fa-angles-right"></i>About</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href="service.html"><i class="fa-solid fa-angles-right"></i>Service</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href="contact.html"><i class="fa-solid fa-angles-right"></i>Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 mb-2">
+            <h5 class="text-white m-3 fw-bold text-lg-start">Libraries</h5>
+            <div class="menu menu-2">
+              <ul class="navba nav flex-column">
+                <li class="nav-item p-0 mb-2">
+                  <a href="https://getbootstrap.com/"><i class="fa-solid fa-angles-right"></i>Bootstrap</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href="https://jquery.com/"><i class="fa-solid fa-angles-right"></i>Jquery</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href="https://animate.style/"><i class="fa-solid fa-angles-right"></i>Animate.css</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href="https://fontawesome.com/"><i class="fa-solid fa-angles-right"></i>Font awesome</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 mb-2">
+            <h5 class="text-white m-3 fw-bold text-lg-start">Sosial media</h5>
+            <div class="menu menu-2">
+              <ul class="navba nav flex-column">
+                <li class="nav-item p-0 mb-2">
+                  <a href=""><i class="bi bi-linkedin mx-2"></i>@linkedin</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href=""><i class="bi bi-twitter mx-2"></i>@twitter</a>
+                </li>
+                <li class="nav-item p-0 mb-2">
+                  <a href=""><i class="bi bi-instagram mx-2"></i>@instagram</a>
+                </li>
+                <li class="nav-item p-0">
+                  <a href><i class="bi bi-facebook mx-2"></i>@facebook</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 mb-2">
+            <h5 class="text-white m-3 fw-bold text-lg-start text-center">Subscribe</h5>
+            <p class="text-white m-0">Subscribe kami!</p>
+            <p class="text-white m-0">Ikuti event terbaru kami!</p>
+            <div class="input-group my-3">
+              <input type="text" class="form-control" placeholder="Your Email" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                <i class="bi bi-envelope-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="py-3 border-top bg-black" style="border: 10px #000;">
+        <p class="text-center text-white m-0">@ 2024 Warindo | Kelvin Leonardo</p>
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-sVFxGr2h6HBcRRqd2E8tGop5r+OAY5zBw98VRPsw1ICvwWfIyfGxF/pQ9h4AUFU8" crossorigin="anonymous">
+    </script>
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      const navbarTitle = document.getElementById("navbar-title");
+      const navbarLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+      if (window.scrollY > 100) {
+        navbar.classList.add("scroll-navbar");
+        navbarTitle.classList.add("text-white");
+        navbarLinks.forEach(link => {
+          link.classList.add("text-white");
+          link.classList.remove("text-black");
+        });
+      } else {
+        navbar.classList.remove("scroll-navbar");
+        navbarTitle.classList.remove("text-white");
+        navbarLinks.forEach(link => {
+          link.classList.remove("text-white");
+          link.classList.add("text-black");
+        });
+      }
+    });
+
+    // Intersection Observer API for animating timeline items
+    document.addEventListener("DOMContentLoaded", function () {
+      var items = document.querySelectorAll(".timeline-item .timeline-content");
+
+      function isInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      function checkItems() {
+        items.forEach(function (item) {
+          if (isInViewport(item)) {
+            item.classList.add("in-view");
+            item.closest(".timeline-item").classList.remove("out-view");
+          } else {
+            item.classList.remove("in-view");
+            item.closest(".timeline-item").classList.add("out-view");
+          }
+        });
+      }
+
+      // Setup Intersection Observer
+      var observer = new IntersectionObserver(checkItems, {
+        threshold: 1 // Menggunakan threshold untuk menentukan kapan harus memanggil fungsi
+      });
+
+      // Memantau setiap item timeline
+      items.forEach(function (item) {
+        observer.observe(item);
+      });
+
+      checkItems(); // Check items on load
+    });
+
+    document.querySelectorAll('.navba li').forEach((li) => {
+      li.addEventListener('mouseover', () => {
+        li.classList.add('hover');
+      });
+
+      li.addEventListener('mouseout', () => {
+        li.classList.remove('hover');
+      });
+    });
+
+  </script>
+</body>
+
+</html>

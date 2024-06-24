@@ -1,0 +1,431 @@
+/* Existing CSS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
+/* Navbar styles */
+.navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-toggler {
+  margin-left: auto;
+}
+
+.navbar .animation {
+  position: absolute;
+  height: 100%;
+  width: 100px; /* Width adjusted for better centering */
+  background-color: #0099ff;
+  transition: 0.5s ease;
+  left: 0;
+  border-radius: 8px;
+}
+
+/* Additional adjustments */
+.navbar ul {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.navbar li {
+  position: relative;
+  width: 100px; /* Width adjusted for better centering */
+  text-align: center;
+  border-radius: 8px;
+}
+
+.navbar li a {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar li:hover a {
+  color: #000; /* Text color on hover */
+}
+
+/* Hover effect with background transition */
+.navbar li:hover ~ .animation {
+  left: calc(100px * var(--i));
+  background-color: #0099ff;
+}
+
+/* Positions for each navbar item */
+.navbar li:nth-child(1):hover ~ .animation { --i: 0; }
+.navbar li:nth-child(2):hover ~ .animation { --i: 1; }
+.navbar li:nth-child(3):hover ~ .animation { --i: 2; }
+.navbar li:nth-child(4):hover ~ .animation { --i: 3; }
+
+/* Return to "Home" position when not hovering any item */
+.navbar:hover .animation {
+  left: 0;
+  background-color: #0099ff;
+}
+
+
+/* Base styles for nav items */
+.navbar-nav .nav-item {
+  position: relative; /* Ensure relative positioning for alignment */
+  flex: 1; /* Distribute space evenly among navbar items */
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #fff; /* White color for text */
+  text-decoration: none; /* Remove underline from links */
+  padding: 0.5rem 1rem; /* Add padding around navbar items */
+  position: relative;
+  z-index: 1; /* Ensure text is above background animation */
+}
+
+/* Ensure animation returns to "Home" when not hovering over any nav items */
+.navbar-nav:hover .animation {
+  left: 0; /* Reset background to "Home" when no hover */
+}
+
+/* Ensure overall navbar styles are correct */
+.navbar-nav {
+  position: relative; /* Necessary for positioning the background animation */
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center; /* Vertically centers the navbar items */
+}
+
+.navbar-nav a {
+  color: #fff; /* Set link color to white */
+  text-decoration: none;
+  padding: 0.5rem 1rem; /* Adds spacing around the navbar items */
+}
+
+.navbar-nav a:hover {
+  color: #ccc; /* Set hover color to light gray */
+}
+
+.scroll-navbar {
+  background-color: #333; /* Warna navbar saat di-scroll */
+  border-bottom: 2px solid #0056b3; /* Thin border on scroll */
+}
+
+.scroll-navbar a {
+  color: #fff;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  opacity: 1; /* Set opacity to make the text fully visible on hover */
+}
+
+.navbar-nav .nav-item:nth-child(1) .nav-link {
+  opacity: 1; /* Set opacity to make the text fully visible */
+}
+
+.navbar-nav .nav-item:nth-child(1) .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-brand img {
+  align-items: center;
+}
+
+.navbar-brand {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Add the animation classes for each nav item 
+/* Other existing CSS */
+
+/* CSS untuk Carousel */
+.carousel-inner {
+  filter: brightness(75%);
+}
+
+.carousel-inner {
+  height: 100vh;
+  width: 100%;
+}
+
+.carousel-caption-custom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.carousel-caption-custom h2,
+.carousel-caption-custom h5 {
+  color: #fff;
+}
+
+/* CSS untuk Modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px; 
+  border-radius: 10px; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  justify-content: end;
+  text-align: end;
+  display: flex;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* CSS untuk efek penggelapan */
+.dimmer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9998;
+}
+
+.gg {
+  text-align: center;
+}
+
+.sub {
+  text-align: end;
+}
+
+.brand-logos {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.brand-logos-inner {
+  display: flex;
+  animation: scroll 15s linear infinite;
+}
+
+.brand-logo {
+  height: 50px; /* Sesuaikan ukuran tinggi logo */
+  margin: 0 15px; /* Sesuaikan margin antara logo */
+  object-fit: contain;
+}
+
+/* CSS untuk bagian bawah halaman */
+.bg-black p {
+  margin-bottom: 0; /* Hapus margin bawah pada paragraf */
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+label {
+  font-weight: normal;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.placeholder {
+  color: #999;
+}
+
+.container {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+.ses {
+  margin-top: 15px;
+  left: auto;
+}
+
+.contact-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-form {
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.contact-form .form-control {
+  border-radius: 4px;
+}
+
+.contact-form .form-control:focus {
+  border-color: #0099ff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 153, 255, 0.25);
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.btn-primary {
+  background-color: #0099ff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #007bff;
+}
+
+/* CSS for the sources section in the footer */
+.navba li {
+  list-style-type: none;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.navba li i {
+  font-size: 14px;
+  padding-right: 8px;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.navba li:hover {
+  color: #0099ff;
+}
+
+.navba li:hover i {
+  transform: scale(0.9);
+  color: #0099ff;
+}
+
+.navba li:hover {
+  transform: scale(1.1);
+}
+
+.navba li a {
+  display: block;
+  transition: all 0.5s;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navba li.hover a {
+  padding-left: 20px;
+  text-indent: 0;
+  letter-spacing: 2px;
+  /* Sesuaikan nilai ini sesuai keinginan Anda */
+  color: #0099ff;
+}
+
+
+/* .carousel {
+  height: 650px;
+  perspective: 250px;
+}
+
+.carousel .carousel-item {
+  width: 450px;
+  background-color: #fff;
+  padding: 50px;
+  height: auto;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.img-area {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+  border: inset 8px deepskyblue;
+}
+
+.img-area img {
+  width: 100%;
+}
+
+.testi p {
+  color: #262626;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.testi h4 {
+  font-size: 20px;
+  margin: 0;
+  color: #000;
+}
+
+.testi h5 {
+  font-size: 14px;
+  letter-spacing: 5;
+  margin: 7px 0;
+  color: yellow;
+} */
