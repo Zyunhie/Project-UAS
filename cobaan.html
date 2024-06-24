@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS untuk carousel */
+        .carousel {
+            display: flex;
+            overflow-x: hidden; /* Disable horizontal scrolling */
+            padding: 20px;
+            width: 1200px;
+            /* Set the width to accommodate 3 carousel items */
+        }
+
+        .carousel-item {
+            flex: 0 0 33.33%;
+            /* Set the width to 33.33% to show 3 items */
+            width: 400px;
+            /* Lebar setiap item carousel */
+            background-color: #fff;
+            padding: 20px;
+            margin-right: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .img-area {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 8px solid deepskyblue;
+            /* Gaya border gambar */
+        }
+
+        .img-area img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .testi p {
+            color: #262626;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .testi h4 {
+            font-size: 20px;
+            margin: 0;
+            color: #000;
+        }
+
+        .testi h5 {
+            font-size: 14px;
+            letter-spacing: 5px;
+            margin: 7px 0;
+            color: yellow;
+        }
+
+        /* Add styles for navigation buttons */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .carousel-nav-prev {
+            left: 20px;
+        }
+
+        .carousel-nav-next {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="carousel-item">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="orang6.jpeg">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero sit quasi, ex nihil voluptatem maxime
+                    quos recusandae nisi corporis, nemo voluptas sapiente ipsam at!</p>
+                <h4>jons tanes</h4>
+                <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i></h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="11426.jpg">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero sit quasi, ex nihil voluptatem maxime
+                    quos recusandae nisi corporis, nemo voluptas sapiente ipsam at!</p>
+                <h4>jons tanes</h4>
+                <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i></h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="orang7.jpeg">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero sit quasi, ex nihil voluptatem maxime
+                    quos recusandae nisi corporis, nemo voluptas sapiente ipsam at!</p>
+                <h4>jons tanes</h4>
+                <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><iclass="fas fa-star"></i><i class="fas fa-star-half-alt"></i></h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="badut.jpeg">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero sit quasi, ex nihil voluptatem maxime
+                    quos recusandae nisi corporis, nemo voluptas sapiente ipsam at!</p>
+                <h4>jons tanes</h4>
+                <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i></h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="orang8.jpeg">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero sit quasi, ex nihil voluptatem maxime
+                    quos recusandae nisi corporis, nemo voluptas sapiente ipsam at!</p>
+                <h4>jons tanes</h4>
+                <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="orang9.jpeg">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero sit quasi, ex nihil voluptatem maxime
+                    quos recusandae nisi corporis, nemo voluptas sapiente ipsam at!</p>
+                <h4>jons tanes</h4>
+                <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i></h5>
+            </div>
+        </div>
+    </div>
+    <!-- Add navigation buttons -->
+    <div class="carousel-nav carousel-nav-prev"><i class="fas fa-chevron-left"></i></div>
+    <div class="carousel-nav carousel-nav-next"><i class="fas fa-chevron-right"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var carousel = document.querySelector('.carousel');
+            var carouselItems = document.querySelectorAll('.carousel-item');
+
+            var currentIndex = 0;
+            var totalItems = carouselItems.length;
+            var autoPlayInterval = 3000; // Interval untuk autoplay dalam milidetik
+
+            function moveToNext() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                carousel.scrollTo({
+                    left: carouselItems[currentIndex].offsetLeft - (carousel.offsetWidth / 2) + (carouselItems[0].offsetWidth / 2),
+                    behavior: 'mooth'
+                });
+            }
+
+            function moveToPrev() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                carousel.scrollTo({
+                    left: carouselItems[currentIndex].offsetLeft - (carousel.offsetWidth / 2) + (carouselItems[0].offsetWidth / 2),
+                    behavior: 'mooth'
+                });
+            }
+
+            // Add event listeners for navigation
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('carousel-nav-next')) {
+                    moveToNext();
+                } else if (e.target.classList.contains('carousel-nav-prev')) {
+                    moveToPrev();
+                }
+            });
+
+            // Initialize autoplay
+            setInterval(moveToNext, autoPlayInterval);
+        });
+    </script>
+</body>
+
+</html>
